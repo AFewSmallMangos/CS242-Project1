@@ -30,12 +30,13 @@ public class FileClackData extends ClackData{
         return this.fileContents;
     }
 
+    //Yet to be filled
     public void readFileContents(){}
 
     public void writeFileContents(){}
 
     @Override
-    public int hashCode(){
+    public int hashCode(){ //Generates a unique hash code based on File information; each unique file should have a unique hash code
         int thisHash = 12;
         if( this.fileName == null ){
             thisHash = thisHash * 32;
@@ -62,6 +63,7 @@ public class FileClackData extends ClackData{
         }
 
         FileClackData comparisonFile = (FileClackData) obj;
+        //If all File parameters are equal, the two files should return true
         return this.getFileName() == comparisonFile.getFileName() &&
                 this.getData() == comparisonFile.getData() &&
                 this.getType() == comparisonFile.getType() &&
@@ -69,7 +71,7 @@ public class FileClackData extends ClackData{
     }
 
     @Override
-    public String toString(){
+    public String toString(){ //Spits out all file parameters as a string
         return "FileName: " + this.getFileName() + "File Contents: " + this.getData();
     }
 }

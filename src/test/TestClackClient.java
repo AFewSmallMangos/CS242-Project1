@@ -9,7 +9,7 @@ public class TestClackClient {
         //Methods
         System.out.println( "UserName: " + client2.getUserName());
         System.out.println( "HostName: " + client2.getHostName());
-        System.out.println( "Port : " + client1.getPort());
+        System.out.println( "Port : " + client2.getPort());
 
         //Overloads
         System.out.println( "Hash code comparison: " + client1.hashCode() + " vs. " + client2.hashCode());
