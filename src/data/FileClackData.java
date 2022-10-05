@@ -18,7 +18,7 @@ public class FileClackData extends ClackData{
     }
 
     //Methods
-    public setFileName( String fileName ){
+    public void setFileName( String fileName ){
         this.fileName = fileName;
     }
 
@@ -36,16 +36,40 @@ public class FileClackData extends ClackData{
 
     @Override
     public int hashCode(){
+        int thisHash = 12;
+        if( this.fileName == null ){
+            thisHash = thisHash * 32;
+        } else {
+            thisHash = thisHash * 32 + this.fileName.hashCode();
+        }
+        if( this.fileContents == null ){
+            thisHash = thisHash * 32;
+        } else {
+            thisHash = thisHash * 32 + this.fileContents.hashCode();
+        }
+        thisHash = thisHash * 32 + getUserName().hashCode();
+        thisHash = thisHash * 32 + getType();
 
+        return thisHash;
     }
 
     @Override
     public boolean equals(Object obj){
+        if(obj == null) {
+            return false;
+        }else if(!(obj instanceof FileClackData)){
+            return false;
+        }
 
+        FileClackData comparisonFile = (FileClackData) obj;
+        return this.getFileName() == comparisonFile.getFileName() &&
+                this.getData() == comparisonFile.getData() &&
+                this.getType() == comparisonFile.getType() &&
+                this.getUserName() == comparisonFile.getUserName();
     }
 
     @Override
     public String toString(){
-        return "FileName: "
+        return "FileName: " + this.getFileName() + "File Contents: " + this.getData();
     }
 }

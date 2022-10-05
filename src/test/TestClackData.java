@@ -10,14 +10,14 @@ public class TestClackData {
         data.MessageClackData message2 = new data.MessageClackData();
 
         //Methods
-        System.out.println("Message reads: " + message1.getData);
+        System.out.println("Message reads: " + message1.getData());
         System.out.println("");
 
         //Overrides
         System.out.println("Message To String: " + message1.toString());
         data.MessageClackData message3 = new data.MessageClackData();
         System.out.println("Hash Code Comparison: " + message1.hashCode() + " vs. " + message3.hashCode());
-        System.out.println();
+        System.out.println("Are messages 1 and 2 equal: " + message1.equals(message2));
 
         //Testing for FileClackData
         //Constructors

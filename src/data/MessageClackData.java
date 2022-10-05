@@ -19,16 +19,36 @@ public class MessageClackData extends ClackData {
 
     @Override
     public boolean equals(Object obj){
+        if(obj == null){
+            return false;
+        }else if(!(obj instanceof MessageClackData)) {
+            return false;
+        }
+
+        MessageClackData comparisonMessage = (MessageClackData) obj;
+        return this.getData() == comparisonMessage.getData() &&
+                this.getDate() == comparisonMessage.getDate() &&
+                this.getType() == comparisonMessage.getType() &&
+                this.getUserName() == comparisonMessage.getUserName();
 
     }
 
     @Override
     public int hashCode(){
+        int thisHash = 11;
+        if( this.message == null){
+            thisHash = thisHash * 31;
+        } else {
+            thisHash = thisHash * 31 + this.message.hashCode();
+        }
+        thisHash = thisHash * 31 + this.getUserName().hashCode();
+        thisHash = thisHash * 31 + this.getType();
 
+        return thisHash;
     }
 
     @Override
     public String toString(){
-        return "UserName: " + getUserName() + "Date: " + this.getDate() + "Type: " + this.getType() + "Message: " + this.getData();
+        return "UserName: " + getUserName() + "Date: " + this.getDate() + "Type: " + getType() + "Message: " + this.getData();
     }
 }
